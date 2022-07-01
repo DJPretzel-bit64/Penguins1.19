@@ -1,6 +1,11 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "penguins:block/compressed_penguin_north"
+    "north": "penguins:block/compressed_penguin_north",
+    "south": "penguins:block/compressed_penguin_south",
+    "east": "penguins:block/compressed_penguin_east",
+    "west": "penguins:block/compressed_penguin_west",
+    "up": "penguins:block/compressed_penguin_top",
+    "down": "penguins:block/compressed_penguin_bottom"
   }
 }

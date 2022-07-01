@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "penguins:block/compressed_penguin_north"
+  }
+}

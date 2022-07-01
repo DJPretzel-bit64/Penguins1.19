@@ -14,7 +14,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
     public static final Block COMPRESSED_PENGUIN = registerBlock("compressed_penguin",
-            new Block(FabricBlockSettings.of(Material.WOOL).requiresTool()), ModItemGroup.PENGUIN_STUFFS);
+            new Block(FabricBlockSettings.of(Material.SCULK).requiresTool().hardness(2f)), ModItemGroup.PENGUIN_STUFFS);
 
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
         registerBlockItem(name, block, tab);

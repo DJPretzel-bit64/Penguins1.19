@@ -1,5 +1,6 @@
 package net.dylan.penguins;
 
+import net.dylan.penguins.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,5 +11,6 @@ public class Penguins implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModItems.registerModItems();
 	}
 }

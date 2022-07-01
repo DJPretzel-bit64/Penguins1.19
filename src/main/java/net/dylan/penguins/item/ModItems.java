@@ -10,6 +10,12 @@ public class ModItems {
     public static final Item PENGUIN_FOOT = registerItem("penguin_foot",
             new Item(new FabricItemSettings().group(ModItemGroup.PENGUIN_STUFFS)));
 
+    public static final Item PENGUIN_BODY = registerItem("penguin_body",
+            new Item(new FabricItemSettings().group(ModItemGroup.PENGUIN_STUFFS)));
+
+    public static final Item PENGUIN_HEAD = registerItem("penguin_head",
+            new Item(new FabricItemSettings().group(ModItemGroup.PENGUIN_STUFFS)));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(Penguins.MOD_ID, name), item);
     }

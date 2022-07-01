@@ -1,5 +1,7 @@
 {
   "item.penguins.penguin_foot": "Penguin Foot",
+  "item.penguins.penguin_body": "Penguin Body",
+  "item.penguins.penguin_head": "Penguin Head",
   "block.penguins.compressed_penguin": "Compressed Penguin",
   "itemGroup.penguins.penguin_stuffs": "Penguin Stuffs"
 }

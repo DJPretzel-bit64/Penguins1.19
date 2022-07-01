@@ -1,13 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "###",
-    "###"
+    " $ ",
+    "@@@",
+    "#@#"
   ],
   "key": {
     "#": {
       "item": "penguins:penguin_foot"
+    },
+    "@": {
+      "item": "penguins:penguin_body"
+    },
+    "$": {
+      "item": "penguins:penguin_head"
     }
   },
   "result": {

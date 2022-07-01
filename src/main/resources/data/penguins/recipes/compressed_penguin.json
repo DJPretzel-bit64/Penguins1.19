@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "penguins:penguin_foot"
+    }
+  },
+  "result": {
+    "item": "penguins:compressed_penguin"
+  }
+}

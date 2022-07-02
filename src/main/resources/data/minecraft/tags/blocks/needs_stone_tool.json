@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "penguins:compressed_penguin"
+    "penguins:compressed_penguin",
+    "penguins:penguin_egg"
   ]
 }

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model":  "penguins:block/penguin_egg" }
+  }
+}

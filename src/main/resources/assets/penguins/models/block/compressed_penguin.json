@@ -1,5 +1,5 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
     "north": "penguins:block/compressed_penguin_north",
     "south": "penguins:block/compressed_penguin_south",

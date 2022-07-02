@@ -1,6 +1,7 @@
 package net.dylan.penguins.block;
 
 import net.dylan.penguins.Penguins;
+import net.dylan.penguins.block.custom.PenguinEgg;
 import net.dylan.penguins.item.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -15,6 +16,9 @@ import net.minecraft.util.registry.Registry;
 public class ModBlocks {
     public static final Block COMPRESSED_PENGUIN = registerBlock("compressed_penguin",
             new Block(FabricBlockSettings.of(Material.SCULK).requiresTool().hardness(2f)), ModItemGroup.PENGUIN_STUFFS);
+
+    public static final Block PENGUIN_EGG = registerBlock("penguin_egg",
+            new PenguinEgg(FabricBlockSettings.of(Material.EGG).requiresTool().hardness(2f)), ModItemGroup.PENGUIN_STUFFS);
 
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
         registerBlockItem(name, block, tab);

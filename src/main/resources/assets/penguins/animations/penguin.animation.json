@@ -1,0 +1,108 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.penguin.idle": {
+			"loop": true,
+			"animation_length": 9.58333,
+			"bones": {
+				"head": {
+					"rotation": {
+						"vector": [0, 0, "math.sin(query.anim_time*150)"]
+					}
+				},
+				"arms": {
+					"rotation": {
+						"vector": [0, 0, "math.sin(query.anim_time*150) "]
+					}
+				},
+				"body": {
+					"rotation": {
+						"vector": [0, 0, "math.sin(query.anim_time*150)"]
+					}
+				},
+				"leftarm": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.125": {
+							"vector": [0, 0, 22.5]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [0, 0, 22.5]
+						},
+						"0.5": {
+							"vector": [0, 0, 0]
+						},
+						"0.625": {
+							"vector": [0, 0, 22.5]
+						},
+						"0.75": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"rightarm": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.125": {
+							"vector": [0, 0, -22.5]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [0, 0, -22.5]
+						},
+						"0.5": {
+							"vector": [0, 0, 0]
+						},
+						"0.625": {
+							"vector": [0, 0, -22.5]
+						},
+						"0.75": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.penguin.walking": {
+			"loop": true,
+			"animation_length": 2.41667,
+			"bones": {
+				"head": {
+					"rotation": {
+						"vector": ["math.sin(query.anim_time*300)*3", 0, 0]
+					}
+				},
+				"leftfoot": {
+					"rotation": {
+						"vector": ["math.sin(query.anim_time*300)*11.25", 0, 0]
+					}
+				},
+				"rightfoot": {
+					"rotation": {
+						"vector": ["math.sin(query.anim_time*300)*-11.25", 0, 0]
+					}
+				},
+				"leftarm": {
+					"rotation": {
+						"vector": ["math.sin(query.anim_time*300)*-22.5", 0, 0]
+					}
+				},
+				"rightarm": {
+					"rotation": {
+						"vector": ["math.sin(query.anim_time*300)*22.5", 0, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

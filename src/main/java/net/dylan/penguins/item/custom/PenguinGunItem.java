@@ -1,5 +1,7 @@
 package net.dylan.penguins.item.custom;
 
+import net.dylan.penguins.entity.custom.PenguinEntity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.item.Item;
@@ -20,10 +22,9 @@ public class PenguinGunItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
         if(!world.isClient() && hand == hand.MAIN_HAND) {
-            SnowballEntity snowballEntity = new SnowballEntity(world, user);
-            snowballEntity.setItem(itemStack);
-            snowballEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 1.0f);
-            world.spawnEntity(snowballEntity);
+            PenguinEntity penguinEntity = new PenguinEntity(EntityType.AXOLOTL, world);
+            penguinEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 1.0f);
+            world.spawnEntity(penguinEntity);
         }
 
         return super.use(world, user, hand);

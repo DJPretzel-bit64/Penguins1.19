@@ -1,10 +1,12 @@
 package net.dylan.penguins.item;
 
 import net.dylan.penguins.Penguins;
+import net.dylan.penguins.entity.ModEntities;
 import net.dylan.penguins.item.custom.PenguinGunItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -20,6 +22,10 @@ public class ModItems {
 
     public static final Item PENGUIN_GUN = registerItem("penguin_gun",
             new PenguinGunItem(new FabricItemSettings().group(ModItemGroup.PENGUIN_STUFFS).maxCount(1)));
+
+    public static final Item PENGUIN_SPAWN_EGG = registerItem("penguin_spawn_egg",
+            new SpawnEggItem(ModEntities.PENGUIN, 0x222034, 0xff890a,
+                    new FabricItemSettings().group(ItemGroup.MISC)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(Penguins.MOD_ID, name), item);

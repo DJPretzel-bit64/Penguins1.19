@@ -1,6 +1,7 @@
 package net.dylan.penguins.entity.custom;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -13,6 +14,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -58,7 +61,7 @@ public class PenguinEntity extends AnimalEntity implements IAnimatable {
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.penguin.idle, true"));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.penguin.idle", true));
         return PlayState.CONTINUE;
     }
 
@@ -80,7 +83,7 @@ public class PenguinEntity extends AnimalEntity implements IAnimatable {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK;
+        return SoundEvents.BLOCK_GLASS_BREAK;
     }
 
     @Override
@@ -93,7 +96,22 @@ public class PenguinEntity extends AnimalEntity implements IAnimatable {
         this.playSound(SoundEvents.ENTITY_PIG_STEP, 0.15f, 1.0f);
     }
 
-    public void setVelocity(PlayerEntity user, float pitch, float yaw, float v, float v1, float v2) {
-        this.setVelocity(user, pitch, yaw, v, v1, v2);
+    public void setVelocity(double x, double y, double z, float speed, float divergence) {
+        Vec3d vec3d = new Vec3d(x, y, z).normalize().add(this.random.nextTriangular(0.0, 0.0172275 * (double)divergence), this.random.nextTriangular(0.0, 0.0172275 * (double)divergence), this.random.nextTriangular(0.0, 0.0172275 * (double)divergence)).multiply(speed);
+        this.setVelocity(vec3d);
+        double d = vec3d.horizontalLength();
+        this.setYaw((float)(MathHelper.atan2(vec3d.x, vec3d.z) * 57.2957763671875));
+        this.setPitch((float)(MathHelper.atan2(vec3d.y, d) * 57.2957763671875));
+        this.prevYaw = this.getYaw();
+        this.prevPitch = this.getPitch();
+    }
+
+    public void setVelocity(Entity shooter, float pitch, float yaw, float roll, float speed, float divergence) {
+        float f = -MathHelper.sin(yaw * ((float)Math.PI / 180)) * MathHelper.cos(pitch * ((float)Math.PI / 180));
+        float g = -MathHelper.sin((pitch + roll) * ((float)Math.PI / 180));
+        float h = MathHelper.cos(yaw * ((float)Math.PI / 180)) * MathHelper.cos(pitch * ((float)Math.PI / 180));
+        this.setVelocity(f, g, h, speed, divergence);
+        Vec3d vec3d = shooter.getVelocity();
+        this.setVelocity(this.getVelocity().add(vec3d.x, shooter.isOnGround() ? 0.0 : vec3d.y, vec3d.z));
     }
 }

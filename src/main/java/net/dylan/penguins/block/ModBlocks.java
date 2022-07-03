@@ -25,7 +25,7 @@ public class ModBlocks {
         return Registry.register(Registry.BLOCK, new Identifier(Penguins.MOD_ID, name), block);
     }
 
-    private static Item registerBlockItem(String name, Block block, ItemGroup tab) {
+    public static Item registerBlockItem(String name, Block block, ItemGroup tab) {
         return Registry.register(Registry.ITEM, new Identifier(Penguins.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().group(tab)));
     }
